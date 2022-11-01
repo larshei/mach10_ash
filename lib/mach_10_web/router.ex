@@ -24,6 +24,12 @@ defmodule Mach10Web.Router do
     live "/live/pagination/:page", PageLive, :pagination
   end
 
+  scope "/api" do
+    pipe_through :api
+
+    forward "/v1", Mach10Web.AshResourceRouter
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", Mach10Web do
   #   pipe_through :api

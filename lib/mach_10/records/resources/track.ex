@@ -1,15 +1,15 @@
 defmodule Mach10.Records.Track do
-  use Ash.Resource
+  use Ash.Resource, data_layer: AshPostgres.DataLayer
 
-  # postgres do
-  #   table "tracks"
-  #   repo Mach10.Repo
-  # end
-
-  multitenancy do
-    strategy :attribute
-    attribute :organization_id
+  postgres do
+    table "tracks"
+    repo Mach10.Repo
   end
+
+  # multitenancy do
+  #   strategy :attribute
+  #   attribute :organization_id
+  # end
 
   actions do
     defaults [:create, :read, :update, :destroy]

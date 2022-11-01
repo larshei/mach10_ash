@@ -1,10 +1,10 @@
 defmodule Mach10.Records.Organization do
-  use Ash.Resource
+  use Ash.Resource, data_layer: AshPostgres.DataLayer
 
-  # postgres do
-  #   table "organizations"
-  #   repo Mach10.Repo
-  # end
+  postgres do
+    table "organizations"
+    repo Mach10.Repo
+  end
 
   relationships do
     has_many :records, Mach10.Records.Record
@@ -13,10 +13,11 @@ defmodule Mach10.Records.Organization do
   end
 
   attributes do
-    attribute :id, :string do
+    integer_primary_key :id
+
+    attribute :reference, :string do
       description "Identifies the Organization. The organization ID is also used by the API as the subdomain. Example: 'redout' would be become redout.mach10.io/..."
       allow_nil? false
-      primary_key? true
     end
 
     attribute :name, :string do

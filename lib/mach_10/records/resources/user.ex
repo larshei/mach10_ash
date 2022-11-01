@@ -1,15 +1,15 @@
 defmodule Mach10.Records.User do
-  use Ash.Resource
+  use Ash.Resource, data_layer: AshPostgres.DataLayer, extensions: [AshJsonApi.Resource]
 
-  # postgres do
-  #   table "users"
-  #   repo Mach10.Repo
-  # end
-
-  multitenancy do
-    strategy :attribute
-    attribute :organization_id
+  postgres do
+    table "users"
+    repo Mach10.Repo
   end
+
+  # multitenancy do
+  #   strategy :attribute
+  #   attribute :organization_id
+  # end
 
   actions do
     defaults [:create, :read, :update, :destroy]
@@ -41,5 +41,19 @@ defmodule Mach10.Records.User do
 
     create_timestamp :inserted_at
     update_timestamp :updated_at
+  end
+
+  json_api do
+    type "user"
+
+    routes do
+      base "/users"
+
+      get :read
+      index :read
+      post :create
+      patch :update
+      delete :destroy
+    end
   end
 end

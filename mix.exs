@@ -52,8 +52,9 @@ defmodule Mach10.MixProject do
       {:petal_components, "~> 0.18.0"},
       {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
       {:ash, "~> 2.4.1"},
-            {:ash_postgres, "~> 1.1.1"},
-            {:elixir_sense, github: "elixir-lsp/elixir_sense", only: [:dev, :test]},
+      {:ash_postgres, "~> 1.1.1"},
+      {:elixir_sense, github: "elixir-lsp/elixir_sense", only: [:dev, :test]},
+      {:ash_json_api, "~> 0.30.1"},
     ]
   end
 

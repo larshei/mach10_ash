@@ -11,6 +11,11 @@ config :mach_10,
   ecto_repos: [Mach10.Repo],
   ash_apis: [Mach10.Records]
 
+# required by AshJsonApi
+config :mime, :types, %{
+  "application/vnd.api+json" => ["json"]
+}
+
 # Configures the endpoint
 config :mach_10, Mach10Web.Endpoint,
   url: [host: "localhost"],
