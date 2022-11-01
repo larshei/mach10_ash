@@ -8,7 +8,8 @@
 import Config
 
 config :mach_10,
-  ecto_repos: [Mach10.Repo]
+  ecto_repos: [Mach10.Repo],
+  ash_apis: [Mach10.Records]
 
 # Configures the endpoint
 config :mach_10, Mach10Web.Endpoint,
