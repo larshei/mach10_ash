@@ -13,10 +13,18 @@ defmodule Mach10.Records.User do
 
   actions do
     defaults [:create, :read, :update, :destroy]
+
+    read :read_by_ref do
+      argument :reference, :string do
+        allow_nil? false
+      end
+
+      filter expr(reference == ^arg(:reference))
+    end
   end
 
   relationships do
-    belongs_to :organization, Mach10.Records.Organization
+    # belongs_to :organization, Mach10.Records.Organization
     has_many :records, Mach10.Records.Record
     has_many :history, Mach10.Records.History
   end
@@ -51,6 +59,7 @@ defmodule Mach10.Records.User do
 
       get :read
       index :read
+      get :read_by_ref, route: "/reference/:reference"
       post :create
       patch :update
       delete :destroy

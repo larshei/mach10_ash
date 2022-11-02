@@ -55,6 +55,7 @@ defmodule Mach10.MixProject do
       {:ash_postgres, "~> 1.1.1"},
       {:elixir_sense, github: "elixir-lsp/elixir_sense", only: [:dev, :test]},
       {:ash_json_api, "~> 0.30.1"},
+      {:ash_phoenix, "~> 1.1.2"},
     ]
   end
 

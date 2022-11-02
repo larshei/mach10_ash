@@ -1,16 +1,16 @@
 defmodule Mach10.Records.Organization do
-  use Ash.Resource, data_layer: AshPostgres.DataLayer
+  use Ash.Resource, data_layer: AshPostgres.DataLayer, extensions: [AshJsonApi.Resource]
 
   postgres do
     table "organizations"
     repo Mach10.Repo
   end
 
-  relationships do
-    has_many :records, Mach10.Records.Record
-    has_many :users, Mach10.Records.Record
-    has_many :tracks, Mach10.Records.Record
-  end
+  # relationships do
+  #   has_many :records, Mach10.Records.Record
+  #   has_many :users, Mach10.Records.Record
+  #   has_many :tracks, Mach10.Records.Record
+  # end
 
   attributes do
     integer_primary_key :id
@@ -39,5 +39,24 @@ defmodule Mach10.Records.Organization do
 
     create_timestamp :inserted_at
     update_timestamp :updated_at
+  end
+
+  actions do
+    defaults [:create, :read, :update, :destroy]
+  end
+
+
+  json_api do
+    type "organization"
+
+    routes do
+      base "/organizations"
+
+      get :read
+      index :read
+      post :create
+      patch :update
+      delete :destroy
+    end
   end
 end

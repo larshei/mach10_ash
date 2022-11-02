@@ -85,8 +85,8 @@
   "check_constraints": [],
   "custom_indexes": [],
   "custom_statements": [],
-  "has_create_action": false,
-  "hash": "01BDC7E463B3D7749D94091D8EA16F29E40AA41B87E5E427FD05F6840E13E1FC",
+  "has_create_action": true,
+  "hash": "5758A89D06F4C822B333465AC0648111290A1306CA7F184971BB5A6CACBBA78C",
   "identities": [],
   "multitenancy": {
     "attribute": null,

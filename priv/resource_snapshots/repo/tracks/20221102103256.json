@@ -59,30 +59,6 @@
       "size": null,
       "source": "updated_at",
       "type": "utc_datetime_usec"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "primary_key?": false,
-      "references": {
-        "destination_attribute": "id",
-        "destination_attribute_default": null,
-        "destination_attribute_generated": null,
-        "multitenancy": {
-          "attribute": null,
-          "global": null,
-          "strategy": null
-        },
-        "name": "tracks_organization_id_fkey",
-        "on_delete": null,
-        "on_update": null,
-        "schema": "public",
-        "table": "organizations"
-      },
-      "size": null,
-      "source": "organization_id",
-      "type": "uuid"
     }
   ],
   "base_filter": null,
@@ -90,7 +66,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "5C75E8098C705547591A5CC941DA393F30369C41838BC74457C9332AF463244F",
+  "hash": "40AEADED0745FE4BE2BAB9C4A89A1856F9506CA1BC85BDBFD15D2909A0423F46",
   "identities": [],
   "multitenancy": {
     "attribute": null,

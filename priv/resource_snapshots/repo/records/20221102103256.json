@@ -31,30 +31,6 @@
       "type": "utc_datetime_usec"
     },
     {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "primary_key?": false,
-      "references": {
-        "destination_attribute": "id",
-        "destination_attribute_default": null,
-        "destination_attribute_generated": null,
-        "multitenancy": {
-          "attribute": null,
-          "global": null,
-          "strategy": null
-        },
-        "name": "records_organization_id_fkey",
-        "on_delete": null,
-        "on_update": null,
-        "schema": "public",
-        "table": "organizations"
-      },
-      "size": null,
-      "source": "organization_id",
-      "type": "uuid"
-    },
-    {
       "allow_nil?": false,
       "default": "nil",
       "generated?": false,
@@ -76,7 +52,7 @@
       },
       "size": null,
       "source": "track_id",
-      "type": "uuid"
+      "type": "bigint"
     },
     {
       "allow_nil?": false,
@@ -100,7 +76,7 @@
       },
       "size": null,
       "source": "user_id",
-      "type": "uuid"
+      "type": "bigint"
     }
   ],
   "base_filter": null,
@@ -108,7 +84,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "484396F9035F4B2AD98562BA8231A75909D9C9A968E073AF480E0AB58BE95019",
+  "hash": "E6F96E67B9CF94F43E2855AE9F80C22A00E6F8207AEFB2178196F35A1D7AE564",
   "identities": [],
   "multitenancy": {
     "attribute": null,

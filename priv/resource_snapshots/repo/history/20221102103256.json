@@ -17,28 +17,8 @@
       "primary_key?": false,
       "references": null,
       "size": null,
-      "source": "name",
-      "type": "text"
-    },
-    {
-      "allow_nil?": false,
-      "default": "nil",
-      "generated?": false,
-      "primary_key?": false,
-      "references": null,
-      "size": null,
-      "source": "reference",
-      "type": "text"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "primary_key?": false,
-      "references": null,
-      "size": null,
-      "source": "avatar_url",
-      "type": "text"
+      "source": "time_ms",
+      "type": "bigint"
     },
     {
       "allow_nil?": false,
@@ -48,16 +28,6 @@
       "references": null,
       "size": null,
       "source": "inserted_at",
-      "type": "utc_datetime_usec"
-    },
-    {
-      "allow_nil?": false,
-      "default": "fragment(\"now()\")",
-      "generated?": false,
-      "primary_key?": false,
-      "references": null,
-      "size": null,
-      "source": "updated_at",
       "type": "utc_datetime_usec"
     },
     {
@@ -74,15 +44,39 @@
           "global": null,
           "strategy": null
         },
-        "name": "users_organization_id_fkey",
+        "name": "history_track_id_fkey",
         "on_delete": null,
         "on_update": null,
         "schema": "public",
-        "table": "organizations"
+        "table": "tracks"
       },
       "size": null,
-      "source": "organization_id",
-      "type": "uuid"
+      "source": "track_id",
+      "type": "bigint"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "primary_key?": false,
+      "references": {
+        "destination_attribute": "id",
+        "destination_attribute_default": null,
+        "destination_attribute_generated": null,
+        "multitenancy": {
+          "attribute": null,
+          "global": null,
+          "strategy": null
+        },
+        "name": "history_user_id_fkey",
+        "on_delete": null,
+        "on_update": null,
+        "schema": "public",
+        "table": "users"
+      },
+      "size": null,
+      "source": "user_id",
+      "type": "bigint"
     }
   ],
   "base_filter": null,
@@ -90,7 +84,7 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": true,
-  "hash": "D90F06DEB78E0F3C9795AD61CB86C7FD13A273F8582564FAA3923D1805D5CB8E",
+  "hash": "A4FBB8F27B93800F63A46B6C9D1CC368ECB8499AEEF6AA20BFA31DB1A2ADE96D",
   "identities": [],
   "multitenancy": {
     "attribute": null,
@@ -99,5 +93,5 @@
   },
   "repo": "Elixir.Mach10.Repo",
   "schema": null,
-  "table": "users"
+  "table": "history"
 }

@@ -3,8 +3,8 @@ defmodule Mach10.Records do
 
   json_api do
     prefix "/api"
-    serve_schema? true
-    log_errors? true
+    serve_schema?(true)
+    log_errors?(true)
   end
 
   resources do

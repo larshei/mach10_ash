@@ -12,13 +12,17 @@ defmodule Mach10.Records.History do
   # end
 
   actions do
-    defaults [:create, :read, :update, :destroy]
+    defaults [:create, :read]
   end
 
   relationships do
-    belongs_to :organization, Mach10.Records.Organization
-    belongs_to :track, Mach10.Records.Track
-    belongs_to :user, Mach10.Records.User
+    # belongs_to :organization, Mach10.Records.Organization
+    belongs_to :track, Mach10.Records.Track do
+      attribute_type :integer
+    end
+    belongs_to :user, Mach10.Records.User do
+      attribute_type :integer
+    end
   end
 
   attributes do

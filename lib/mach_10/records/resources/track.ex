@@ -1,5 +1,5 @@
 defmodule Mach10.Records.Track do
-  use Ash.Resource, data_layer: AshPostgres.DataLayer
+  use Ash.Resource, data_layer: AshPostgres.DataLayer, extensions: [AshJsonApi.Resource]
 
   postgres do
     table "tracks"
@@ -16,7 +16,7 @@ defmodule Mach10.Records.Track do
   end
 
   relationships do
-    belongs_to :organization, Mach10.Records.Organization
+    # belongs_to :organization, Mach10.Records.Organization
     has_many :records, Mach10.Records.Record
     has_many :history, Mach10.Records.History
   end
@@ -41,5 +41,19 @@ defmodule Mach10.Records.Track do
 
     create_timestamp :inserted_at
     update_timestamp :updated_at
+  end
+
+  json_api do
+    type "track"
+
+    routes do
+      base "/tracks"
+
+      get :read
+      index :read
+      post :create
+      patch :update
+      delete :destroy
+    end
   end
 end
